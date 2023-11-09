@@ -9,9 +9,19 @@ const ingredients = [
 
 const ul = document.getElementById("ingredients");
 
-ingredients.forEach(ingredient => {
-  const li = document.createElement("li");
-  li.textContent = ingredient;
-  li.classList.add("item");
-  ul.appendChild(li);
-});
+// Варіант 1
+// ingredients.forEach(ingredient => {
+//   const li = document.createElement("li");
+//   li.textContent = ingredient;
+//   li.classList.add("item");
+//   ul.appendChild(li);
+// });
+
+// Варіант 2
+
+const li = document.createElement("li");
+const markup = ingredients.map((item) => `
+<li class="item-ingredients">${item}</li>`)
+  .join("");
+
+  ul.innerHTML = markup;
